@@ -1,11 +1,11 @@
 # Script to search for a VM in Rubrik, list the available backups to the user and allow them to perform a Live Mount.
 
 ### Variables to set
-$cred = '~/.cred.xml'
+$cred = Import-Clixml ('~/.cred.xml')
 $server = 'amer1-rbk01.rubrikdemo.com'
 
 ### Do not modify below this line
-Connect-Rubrik $server -Credential (Import-Clixml $cred)
+Connect-Rubrik $server -Credential $cred
 
 # Get VM search term from user
 $vminput = Read-Host -Prompt 'Enter the VM name to display available Live Mount options'
