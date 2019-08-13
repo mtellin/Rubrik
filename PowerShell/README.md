@@ -1,4 +1,6 @@
-# Creating a credential file (for OSX, change path to appropriate value for Windows)
+# Getting started
+
+Creating a credential file (for OSX, change path to appropriate value for Windows)  
 
 ```ps
 $credential = Get-Credential | Export-Clixml -path '~/.cred.xml'
