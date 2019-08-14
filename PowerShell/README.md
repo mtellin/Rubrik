@@ -2,18 +2,18 @@
 
 Creating a credential file (for OSX, change path to appropriate value for Windows)  
 
-```ps
+```powershell
 $credential = Get-Credential | Export-Clixml -path '~/.cred.xml'
 ```
 
 Setting credential variable  
 
-```ps
+```powershell
 $credential = Import-Clixml '~/.cred.xml'
 ```
 
 Authorization section for beginning of scripts
-```ps
+```powershell
 ### Variables to set
 $server = 'amer1-rbk01.rubrikdemo.com'
 $credpath = '~/.cred.xml'
