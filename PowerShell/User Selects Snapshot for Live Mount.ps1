@@ -1,8 +1,17 @@
 # Script to search for a VM in Rubrik, list the available backups to the user and allow them to perform a Live Mount.
 
 ### Variables to set
-$cred = Import-Clixml ('~/.cred.xml')
 $server = 'amer1-rbk01.rubrikdemo.com'
+$credpath = '~/.cred.xml'
+
+### Check if credential file exists, if not - prompt for credentials and save
+if ((Test-Path ~/.cred.xml -PathType Leaf) -eq 'True') {
+    $cred = Import-Clixml $credpath
+}
+else {
+    $cred = Get-Credential
+    $cred | Export-Clixml -Path $credpath
+}
 
 ### Do not modify below this line
 Connect-Rubrik $server -Credential $cred
