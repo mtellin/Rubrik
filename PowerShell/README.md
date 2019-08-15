@@ -1,5 +1,10 @@
 # Getting started
 
+Install Rubrik PowerShell Module
+```powershell
+Install-Module -Name Rubrik
+```
+
 Creating a credential file (for OSX, change path to appropriate value for Windows)  
 
 ```powershell
