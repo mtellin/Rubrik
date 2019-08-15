@@ -28,8 +28,7 @@ $vm = $vmmenu | where {$_.item -eq $vmlist}
 
 # Iterate through results, use a counter to number the output for easier user selection
 $global:i=0
-get-rubriksnapshot -id $vm.id | Select-Object @{Name="Item";Expression={$global:i++;$global:i}}, date, consistencyLevel,
-vmName, id -outvariable snapmenu | format-table -AutoSize
+get-rubriksnapshot -id $vm.id | Select-Object @{Name="Item";Expression={$global:i++;$global:i}}, date, consistencyLevel, vmName, id -outvariable snapmenu | format-table -AutoSize
 $snaplist = Read-Host "Select a snapshot to live mount"
 $snap = $snapmenu | where {$_.item -eq $snaplist}
 Write-Host "Live mounting " $snap.id
