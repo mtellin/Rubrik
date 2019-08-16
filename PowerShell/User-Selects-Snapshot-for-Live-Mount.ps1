@@ -1,13 +1,7 @@
 # Script to search for a VM in Rubrik, list the available backups to the user and allow them to perform a Live Mount.
 
-### Variables to set
-$server = 'amer1-rbk01.rubrikdemo.com'
-
 ### Load prereq.ps1 for checking Module installation and loading credentials
-$cred = & .\Setup-Prereq.ps1
-
-### Do not modify below this line
-Connect-Rubrik $server -Credential $cred
+& .\Setup-Prereq.ps1
 
 # Get VM search term from user
 $vminput = Read-Host -Prompt 'Enter the VM name to display available Live Mount options'
