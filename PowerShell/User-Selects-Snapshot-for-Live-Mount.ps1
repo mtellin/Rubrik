@@ -2,25 +2,9 @@
 
 ### Variables to set
 $server = 'amer1-rbk01.rubrikdemo.com'
-$credpath = '~/.cred.xml'
 
-### Check if Rubrik PowerShell module is installed, exit script if not
-if (Get-Module -ListAvailable -Name Rubrik) {
-    Write-Host "Rubrik PowerShell module found, continuing..."
-} 
-else {
-    Write-Host "Please install the Rubrik PowerShell module first: Install-Module -Name Rubrik"
-    exit
-}
-
-### Check if credential file exists, if not - prompt for credentials and save
-if ((Test-Path ~/.cred.xml -PathType Leaf) -eq 'True') {
-    $cred = Import-Clixml $credpath
-}
-else {
-    $cred = Get-Credential
-    $cred | Export-Clixml -Path $credpath
-}
+### Load prereq.ps1 for checking Module installation and loading credentials
+$cred = & .\Setup-Prereq.ps1
 
 ### Do not modify below this line
 Connect-Rubrik $server -Credential $cred
