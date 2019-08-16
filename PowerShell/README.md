@@ -35,3 +35,15 @@ else {
 ### Do not modify below this line
 Connect-Rubrik $server -Credential $cred
 ```
+
+Exiting the script if the Rubrik PowerShell module is not found
+```powershell
+### Check if Rubrik PowerShell module is installed, exit script if not
+if (Get-Module -ListAvailable -Name Rubrik) {
+    Write-Host "Rubrik PowerShell module found, continuing..."
+} 
+else {
+    Write-Host "Please install the Rubrik PowerShell module first: Install-Module -Name Rubrik"
+    exit
+}
+```
