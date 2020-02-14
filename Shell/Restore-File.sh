@@ -9,7 +9,6 @@
 #$RUBRIK_USER
 #$RUBRIK_PASS
 
-# Replace the ::: with %3A%3A%3A
 FILESET_ID='Fileset:::fddfc2fa-b67a-4f1c-b920-b31c45dc8661'
 
 # Grab this from developer tools after running the restore in the UI. Copy and paste after clicking 'view source'
