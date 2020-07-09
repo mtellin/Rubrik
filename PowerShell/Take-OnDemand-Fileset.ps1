@@ -15,3 +15,8 @@ while ((Invoke-RubrikRESTCall -endpoint ("fileset/request/" + $output.id) -Metho
     Start-Sleep -Seconds 60
 }
 Write-Host 'Backup completed!'
+
+# Check the status of the backup once completed
+# Still a work in progress below
+$eventseries = (Invoke-RubrikRESTCall -api internal -Endpoint event_series -Method GET).data
+$eventseries | where { $_.jobInstanceId -eq “$($output.id)” }
