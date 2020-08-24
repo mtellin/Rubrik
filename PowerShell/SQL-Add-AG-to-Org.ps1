@@ -1,5 +1,7 @@
 .\Setup-Prereq.ps1
 
+# Note: this will add a single AG, will need to update script to handle multiple AGs
+# and properly add it into the $body parameter
 $agName = 'am1-sql16ag-1ag'
 $orgName = 'miket-test2'
 
