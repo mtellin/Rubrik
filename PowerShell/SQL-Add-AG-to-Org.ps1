@@ -1,3 +1,5 @@
+# Note: This script looks to require CDM 5.2+ for the role/$roleId/authorization endpoint
+
 .\Setup-Prereq.ps1
 
 # Note: this will add a single AG, will need to update script to handle multiple AGs
