@@ -3,8 +3,10 @@
 
 .\Setup-Prereq.ps1
 
-# Note: this will add a single AG, will need to update script to handle multiple AGs
-# and properly add it into the $body parameter
+# Note: this will use a single VM to show the process but can be extended to
+# loop through all VMs, a .csv list of VMs etc.
+# In the event of a DR on a net-new Rubrik clsuter we could just loop through
+# every VM that shows on the system after the archive reconnect process completes.
 $vmName = 'sx1-win16-2'
 $encryptionKey = Read-Host -Prompt 'Enter your encryption key for the archive'
 $bucketName = Read-Host -Prompt 'Enter the S3 bucket name'
